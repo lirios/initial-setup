@@ -28,6 +28,9 @@
 #include <QWizard>
 
 #include "pages/language.h"
+#include "pages/network.h"
+#include "pages/login.h"
+#include "pages/final.h"
 
 int main(int argc, char *argv[])
 {
@@ -39,6 +42,9 @@ int main(int argc, char *argv[])
 
     QWizard wizard;
     wizard.addPage(new Language());
+    wizard.addPage(new Network());
+    wizard.addPage(new Login());
+    wizard.addPage(new Final());
     wizard.setWindowTitle(QObject::tr("Welcome"));
     wizard.show();
 

@@ -24,28 +24,26 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef CREATELOCALACCOUNTDIALOG_H
+#define CREATELOCALACCOUNTDIALOG_H
 
-#include <QWizardPage>
+#include <QDialog>
 
 namespace Ui
 {
-    class Language;
+    class CreateLocalAccountDialog;
 }
 
-class Language : public QWizardPage
+class CreateLocalAccountDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
-
-    void initializePage();
+    explicit CreateLocalAccountDialog(QWidget *parent = 0);
+    ~CreateLocalAccountDialog();
 
 private:
-    Ui::Language *ui;
+    Ui::CreateLocalAccountDialog *ui;
 };
 
-#endif // LANGUAGE_H
+#endif // CREATELOCALACCOUNTDIALOG_H

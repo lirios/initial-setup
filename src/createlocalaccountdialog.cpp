@@ -24,28 +24,17 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#include "createlocalaccountdialog.h"
+#include "ui_createlocalaccountdialog.h"
 
-#include <QWizardPage>
-
-namespace Ui
+CreateLocalAccountDialog::CreateLocalAccountDialog(QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::CreateLocalAccountDialog)
 {
-    class Language;
+    ui->setupUi(this);
 }
 
-class Language : public QWizardPage
+CreateLocalAccountDialog::~CreateLocalAccountDialog()
 {
-    Q_OBJECT
-
-public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
-
-    void initializePage();
-
-private:
-    Ui::Language *ui;
-};
-
-#endif // LANGUAGE_H
+    delete ui;
+}

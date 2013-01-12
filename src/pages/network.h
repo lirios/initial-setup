@@ -24,28 +24,26 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef NETWORK_H
+#define NETWORK_H
 
 #include <QWizardPage>
 
 namespace Ui
 {
-    class Language;
+    class Network;
 }
 
-class Language : public QWizardPage
+class Network : public QWizardPage
 {
     Q_OBJECT
 
 public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
-
-    void initializePage();
+    explicit Network(QWidget *parent = 0);
+    ~Network();
 
 private:
-    Ui::Language *ui;
+    Ui::Network *ui;
 };
 
-#endif // LANGUAGE_H
+#endif // NETWORK_H

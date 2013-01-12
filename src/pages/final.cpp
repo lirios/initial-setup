@@ -24,28 +24,17 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#include "final.h"
+#include "ui_final.h"
 
-#include <QWizardPage>
-
-namespace Ui
+Final::Final(QWidget *parent)
+    : QWizardPage(parent)
+    , ui(new Ui::Final)
 {
-    class Language;
+    ui->setupUi(this);
 }
 
-class Language : public QWizardPage
+Final::~Final()
 {
-    Q_OBJECT
-
-public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
-
-    void initializePage();
-
-private:
-    Ui::Language *ui;
-};
-
-#endif // LANGUAGE_H
+    delete ui;
+}
