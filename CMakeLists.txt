@@ -76,7 +76,7 @@ macro_log_feature(VibeCore_FOUND "VibeCore" "Support for VibeCore" "http://www.m
 macro_log_feature(VibeWidgets_FOUND "VibeWidgets" "Support for VibeWidgets" "http://www.maui-project.org" "")
 
 # Subdirectories
-add_subdirectory(data)
+#add_subdirectory(data)
 add_subdirectory(src)
 
 # Display featute log
