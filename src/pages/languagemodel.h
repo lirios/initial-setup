@@ -24,44 +24,30 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef LANGUAGEMODEL_H
+#define LANGUAGEMODEL_H
 
-#include <QWizardPage>
+#include <QAbstractListModel>
 #include <QLocale>
+#include <QSet>
 
-namespace Ui
-{
-    class Language;
-}
-
-class LanguageModel;
-class LanguageSortFilterProxyModel;
-
-class Language : public QWizardPage
+class LanguageModel : public QAbstractListModel
 {
     Q_OBJECT
-
+    Q_ENUMS(LanguageRole)
 public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
+    enum Roles {
+        LanguageRole = Qt::UserRole + 1
+    };
 
-    QLocale::Language language() const;
+    explicit LanguageModel(QObject *parent = 0);
 
-    bool isComplete() const;
+    int rowCount(const QModelIndex &parent) const;
 
-protected:
-    void changeEvent(QEvent *event);
+    QVariant data(const QModelIndex &index, int role) const;
 
 private:
-    Ui::Language *ui;
-    LanguageSortFilterProxyModel *m_proxyModel;
-    LanguageModel *m_model;
-    QLocale::Language m_lang;
-
-private Q_SLOTS:
-    void languageSelected(const QModelIndex &current, const QModelIndex &previous);
-    void toggleShowAll(bool toggle);
+    QSet<QLocale::Language> m_list;
 };
 
-#endif // LANGUAGE_H
+#endif // LANGUAGEMODEL_H

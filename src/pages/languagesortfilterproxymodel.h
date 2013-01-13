@@ -24,44 +24,27 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef LANGUAGESORTFILTERPROXYMODEL_H
+#define LANGUAGESORTFILTERPROXYMODEL_H
 
-#include <QWizardPage>
+#include <QSortFilterProxyModel>
 #include <QLocale>
 
-namespace Ui
-{
-    class Language;
-}
-
-class LanguageModel;
-class LanguageSortFilterProxyModel;
-
-class Language : public QWizardPage
+class LanguageSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-
 public:
-    explicit Language(QWidget *parent = 0);
-    ~Language();
+    explicit LanguageSortFilterProxyModel(QObject *parent = 0);
 
-    QLocale::Language language() const;
-
-    bool isComplete() const;
+    bool isFilterEnabled() const;
+    void setFilterEnabled(bool flag);
 
 protected:
-    void changeEvent(QEvent *event);
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
 
 private:
-    Ui::Language *ui;
-    LanguageSortFilterProxyModel *m_proxyModel;
-    LanguageModel *m_model;
-    QLocale::Language m_lang;
-
-private Q_SLOTS:
-    void languageSelected(const QModelIndex &current, const QModelIndex &previous);
-    void toggleShowAll(bool toggle);
+    bool m_filter;
+    QList<QLocale::Language> m_commonLanguages;
 };
 
-#endif // LANGUAGE_H
+#endif // LANGUAGESORTFILTERPROXYMODEL_H

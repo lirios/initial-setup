@@ -4,6 +4,8 @@ set(SOURCES
     main.cpp
     createlocalaccountdialog.cpp
     pages/language.cpp
+    pages/languagemodel.cpp
+    pages/languagesortfilterproxymodel.cpp
     pages/network.cpp
     pages/login.cpp
     pages/final.cpp

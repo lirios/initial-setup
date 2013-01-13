@@ -22,7 +22,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QListWidget" name="languages">
+    <widget class="QListView" name="languages">
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
