@@ -2,6 +2,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/pages)
 
 set(SOURCES
     main.cpp
+    connman.cpp
     createlocalaccountdialog.cpp
     pages/language.cpp
     pages/languagemodel.cpp
@@ -22,4 +23,4 @@ set(UI_SOURCES
 qt5_wrap_ui(UI_FILES ${UI_SOURCES})
 
 add_executable(maui-initial-setup ${SOURCES} ${UI_FILES})
-qt5_use_modules(maui-initial-setup Widgets)
+qt5_use_modules(maui-initial-setup Connman Widgets)

@@ -34,6 +34,10 @@ namespace Ui
     class Network;
 }
 
+class ConnMan;
+class Agent;
+class Technology;
+
 class Network : public QWizardPage
 {
     Q_OBJECT
@@ -44,6 +48,13 @@ public:
 
 private:
     Ui::Network *ui;
+    ConnMan *m_manager;
+    Agent *m_agent;
+    Technology *m_curTechnology;
+
+private Q_SLOTS:
+    void technologySelected(int index);
+    void technologyEnabled(bool enabled);
 };
 
 #endif // NETWORK_H

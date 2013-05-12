@@ -52,6 +52,10 @@ endif()
 include(GenerateExportHeader)
 
 # Find Qt
+find_package(Qt5Connman REQUIRED)
+if(NOT Qt5Connman_FOUND)
+    message(FATAL_ERROR "Qt5Connman module is required!")
+endif()
 find_package(Qt5AccountsService REQUIRED)
 if(NOT Qt5AccountsService_FOUND)
     message(FATAL_ERROR "Qt5AccountsService module is required!")
@@ -60,6 +64,7 @@ find_package(Qt5LinguistTools REQUIRED)
 if(NOT Qt5LinguistTools_FOUND)
     message(FATAL_ERROR "Qt5LinguistTools module is required!")
 endif()
+macro_log_feature(Qt5Connman_FOUND "Qt5Connman" "Support for Qt5Connman" "https://bitbucket.org/devonit/qconnman" "")
 macro_log_feature(Qt5AccountsService_FOUND "Qt5AccountsService" "Support for Qt5AccountsService" "http://qt-project.org" "")
 macro_log_feature(Qt5LinguistTools_FOUND "Qt5LinguistTools" "Support for Qt5LinguistTools" "http://qt-project.org" "")
 

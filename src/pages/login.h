@@ -44,6 +44,9 @@ public:
 
 private:
     Ui::Login *ui;
+
+private Q_SLOTS:
+    void createLocalAccount();
 };
 
 #endif // LOGIN_H

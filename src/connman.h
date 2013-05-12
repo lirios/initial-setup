@@ -24,27 +24,19 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include "login.h"
-#include "ui_login.h"
-#include "createlocalaccountdialog.h"
+#ifndef CONNMAN_H
+#define CONNMAN_H
 
-Login::Login(QWidget *parent)
-    : QWizardPage(parent)
-    , ui(new Ui::Login)
+#include <QtConnman/Manager>
+
+class ConnMan : public Manager
 {
-    ui->setupUi(this);
+    Q_OBJECT
+public:
+    explicit ConnMan(QObject *parent = 0);
 
-    connect(ui->createLocalAccount, SIGNAL(clicked()),
-            this, SLOT(createLocalAccount()));
-}
+    QString technologyName(Technology *technology) const;
+    QIcon serviceIcon(Service *service) const;
+};
 
-Login::~Login()
-{
-    delete ui;
-}
-
-void Login::createLocalAccount()
-{
-    CreateLocalAccountDialog dialog(this);
-    dialog.exec();
-}
+#endif // CONNMAN_H

@@ -24,17 +24,57 @@
  * $END_LICENSE$
  ***************************************************************************/
 
+#include <QDebug>
+
+#include <QtConnman/Agent>
+
 #include "network.h"
 #include "ui_network.h"
+#include "connman.h"
 
 Network::Network(QWidget *parent)
     : QWizardPage(parent)
     , ui(new Ui::Network)
+    , m_agent(0)
+    , m_curTechnology(0)
 {
     ui->setupUi(this);
+
+    m_manager = new ConnMan(this);
+
+    ui->technologies->setModel(m_manager);
+
+    connect(ui->technologies, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(technologySelected(int)));
+    connect(ui->technologyEnabled, SIGNAL(toggled(bool)),
+            this, SLOT(technologyEnabled(bool)));
 }
 
 Network::~Network()
 {
     delete ui;
 }
+
+void Network::technologySelected(int index)
+{
+    QModelIndex current = m_manager->index(index, 0);
+
+    ManagerNode *node = static_cast<ManagerNode *>(current.internalPointer());
+    if (!node || !node->isTechnology()) {
+        qDebug() << "Invalid technology item selected!";
+        return;
+    }
+
+    m_curTechnology = node->object<Technology *>();
+    ui->technologyEnabled->setChecked(m_curTechnology->isPowered());
+
+    ui->networks->setModel(m_manager);
+    ui->networks->setRootIndex(current);
+}
+
+void Network::technologyEnabled(bool enabled)
+{
+    m_curTechnology->setPowered(enabled);
+}
+
+#include "moc_network.cpp"
