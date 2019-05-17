@@ -1,15 +1,12 @@
 Initial Setup
 =============
 
-[![ZenHub.io](https://img.shields.io/badge/supercharged%20by-zenhub.io-blue.svg)](https://zenhub.io)
-
 [![License](https://img.shields.io/badge/license-GPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![GitHub release](https://img.shields.io/github/release/qmlos/initial-setup.svg)](https://github.com/qmlos/initial-setup)
-[![Build Status](https://travis-ci.org/qmlos/initial-setup.svg?branch=develop)](https://travis-ci.org/qmlos/initial-setup)
-[![GitHub issues](https://img.shields.io/github/issues/qmlos/initial-setup.svg)](https://github.com/qmlos/initial-setup/issues)
-[![Maintained](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/qmlos/initial-setup/commits/develop)
+[![GitHub release](https://img.shields.io/github/release/lirios/initial-setup.svg)](https://github.com/lirios/initial-setup)
+[![Build Status](https://travis-ci.org/lirios/initial-setup.svg?branch=develop)](https://travis-ci.org/lirios/initial-setup)
+[![GitHub issues](https://img.shields.io/github/issues/lirios/initial-setup.svg)](https://github.com/lirios/initial-setup/issues)
 
-Initial setup for qmlOS.
+Initial setup for Liri OS.
 
 ## Introduction
 
@@ -39,7 +36,7 @@ enter his credentials again on the login screen.
 
 ## Dependencies
 
-Qt >= 5.7.0 with at least the following modules is required:
+Qt >= 5.10.0 with at least the following modules is required:
 
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
@@ -48,23 +45,25 @@ Qt >= 5.7.0 with at least the following modules is required:
 
 The following modules and their dependencies are required:
 
- * [qtaccountsservice](https://github.com/hawaii-desktop/qtaccountsservice)
+ * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.10.0
+ * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
+ * [fluid](https://github.com/lirios/fluid) >= 1.0.0
+ * [qtaccountsservice](https://github.com/lirios/qtaccountsservice) >= 1.0.0
 
 ## Installation
 
-From the root of the repository, run:
-
 ```sh
-mkdir build; cd build
-cmake .. -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/path/to/prefix ..
 make
 make install # use sudo if necessary
 ```
 
-On the `cmake` line, you can specify additional configuration parameters:
+Replace `/path/to/prefix` to your installation prefix.
+Default is `/usr/local`.
 
- * `-DCMAKE_INSTALL_PREFIX=/path/to/install` (for example, `/opt/qmlos` or `/usr`)
- * `-DCMAKE_BUILD_TYPE=<build_type>`, where `<build_type>` is one of:
-   * **Debug:** debug build
-   * **Release:** release build
-   * **RelWithDebInfo:** release build with debugging information
+## Licensing
+
+Licensed under the terms of the GNU General Public License version 3 or,
+at your option, any later version.

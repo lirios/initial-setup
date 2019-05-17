@@ -1,16 +1,13 @@
 /****************************************************************************
- * This file is part of Maui Initial Setup.
+ * This file is part of Liri.
  *
- * Copyright (C) 2013 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Copyright (C) 2019 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
  *
- * Author(s):
- *    Pier Luigi Fiorini
- *
- * $BEGIN_LICENSE:GPL2+$
+ * $BEGIN_LICENSE:GPL3+$
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -24,29 +21,16 @@
  * $END_LICENSE$
  ***************************************************************************/
 
-#include <QApplication>
-#include <QWizard>
-
-#include "pages/language.h"
-#include "pages/network.h"
-#include "pages/login.h"
-#include "pages/final.h"
+#include <QGuiApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-    app.setApplicationName("Maui Initial Setup");
-    app.setApplicationVersion("0.0.0");
-    app.setOrganizationDomain("maui-project.org");
-    app.setOrganizationName("Maui");
-
-    QWizard wizard;
-    wizard.addPage(new Language());
-    wizard.addPage(new Network());
-    wizard.addPage(new Login());
-    wizard.addPage(new Final());
-    wizard.setWindowTitle(QObject::tr("Welcome"));
-    wizard.show();
+    QGuiApplication app(argc, argv);
+    app.setApplicationName(QLatin1String("Liri Initial Setup"));
+    app.setApplicationVersion(QLatin1String(INITIAL_SETUP_VERSION));
+    app.setOrganizationDomain(QLatin1String("liri.io"));
+    app.setOrganizationName(QLatin1String("Liri"));
+    app.setDesktopFileName(QLatin1String("liri-initial-setup.desktop"));
 
     return app.exec();
 }
