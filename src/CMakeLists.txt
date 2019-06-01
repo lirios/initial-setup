@@ -9,5 +9,6 @@ liri_add_executable(InitialSetup
         INITIAL_SETUP_VERSION="${PROJECT_VERSION}"
     LIBRARIES
         Qt5::Core
+        Qt5::Gui
         Qt5::Qml
 )
