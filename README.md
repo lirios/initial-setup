@@ -3,7 +3,7 @@ Initial Setup
 
 [![License](https://img.shields.io/badge/license-GPLv3.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![GitHub release](https://img.shields.io/github/release/lirios/initial-setup.svg)](https://github.com/lirios/initial-setup)
-[![Build Status](https://travis-ci.org/lirios/initial-setup.svg?branch=develop)](https://travis-ci.org/lirios/initial-setup)
+[![CI](https://github.com/lirios/initial-setup/workflows/CI/badge.svg?branch=develop)](https://github.com/lirios/initial-setup/actions?query=workflow%3ACI)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/initial-setup.svg)](https://github.com/lirios/initial-setup/issues)
 
 Initial setup for Liri OS.
