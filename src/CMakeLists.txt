@@ -12,3 +12,5 @@ liri_add_executable(InitialSetup
         Qt5::Gui
         Qt5::Qml
 )
+
+liri_finalize_executable(InitialSetup)
