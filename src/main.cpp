@@ -23,14 +23,16 @@
 
 #include <QGuiApplication>
 
+using namespace Qt::StringLiterals;
+
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setApplicationName(QLatin1String("Liri Initial Setup"));
+    app.setApplicationName("Liri Initial Setup"_L1);
     app.setApplicationVersion(QLatin1String(INITIAL_SETUP_VERSION));
-    app.setOrganizationDomain(QLatin1String("liri.io"));
-    app.setOrganizationName(QLatin1String("Liri"));
-    app.setDesktopFileName(QLatin1String("liri-initial-setup.desktop"));
+    app.setOrganizationDomain("liri.io"_L1);
+    app.setOrganizationName("Liri"_L1);
+    app.setDesktopFileName("liri-initial-setup.desktop"_L1);
 
     return app.exec();
 }

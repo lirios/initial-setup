@@ -1,25 +1,10 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.19)
 
 project("Initial Setup"
     VERSION "0.0.0"
-    DESCRIPTION "QtQuick Wayland compositor and shell"
+    DESCRIPTION "Initial setup for Liri OS"
     LANGUAGES CXX C
 )
-
-## Shared macros and functions:
-if(NOT LIRI_LOCAL_ECM)
-    find_package(LiriCMakeShared "2.0.0" REQUIRED NO_MODULE)
-    list(APPEND CMAKE_MODULE_PATH "${LCS_MODULE_PATH}")
-endif()
-
-## Set minimum versions required:
-set(QT_MIN_VERSION "5.10.0")
-
-## Add some paths to check for CMake modules:
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake;${CMAKE_CURRENT_SOURCE_DIR}/cmake/3rdparty")
-
-## Liri specific setup common for all modules:
-include(LiriSetup)
 
 ## Only build on the appropriate platforms.
 if(NOT UNIX OR ANDROID)
@@ -27,12 +12,15 @@ if(NOT UNIX OR ANDROID)
     return()
 endif()
 
-## Find Qt 5:
-find_package(Qt5 "${QT_MIN_VERSION}"
-    CONFIG REQUIRED
+## Enable C++17:
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+## Find Qt:
+find_package(Qt6
+    REQUIRED
     COMPONENTS
         Core
-        Concurrent
         Gui
         Qml
         Quick
