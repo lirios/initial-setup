@@ -8,7 +8,7 @@ project("Initial Setup"
 
 ## Only build on the appropriate platforms.
 if(NOT UNIX OR ANDROID)
-    message(NOTICE "Skipping the build as the condition \"NOT UNIX OR ANDROID\" is not met.")
+    message(NOTICE "\"${CMAKE_PROJECT_NAME}\" can be build only on UNIX-like systems, Android excluded")
     return()
 endif()
 
