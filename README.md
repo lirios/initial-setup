@@ -36,19 +36,19 @@ enter his credentials again on the login screen.
 
 ## Dependencies
 
-Qt >= 5.10.0 with at least the following modules is required:
+Qt >= 6.7 with at least the following modules is required:
 
  * [qtbase](http://code.qt.io/cgit/qt/qtbase.git)
  * [qtdeclarative](http://code.qt.io/cgit/qt/qtdeclarative.git)
- * [qtquickcontrols2](http://code.qt.io/cgit/qt/qtquickcontrols2.git)
  * [qttools](http://code.qt.io/cgit/qt/qttools.git/)
 
 The following modules and their dependencies are required:
 
- * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.10.0
- * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
- * [fluid](https://github.com/lirios/fluid) >= 1.0.0
- * [qtaccountsservice](https://github.com/lirios/qtaccountsservice) >= 1.0.0
+ * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.19.0
+ * [extra-cmake-modules](https://invent.kde.org/frameworks/extra-cmake-modules) >= 5.245.0
+ * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 2.0.99
+ * [fluid](https://github.com/lirios/fluid) >= 2.0.0
+ * [qtaccountsservice](https://github.com/lirios/qtaccountsservice) >= 2.0.0
 
 ## Installation
 
