@@ -1,4 +1,4 @@
-qt_add_executable(InitialSetup
+qt6_add_executable(InitialSetup
     MANUAL_FINALIZATION
     main.cpp
 )
@@ -8,7 +8,7 @@ set_target_properties(InitialSetup
         OUTPUT_NAME "liri-initial-setup"
 )
 
-qt_finalize_executable(InitialSetup)
+qt6_finalize_executable(InitialSetup)
 
 target_compile_definitions(InitialSetup
     PRIVATE
@@ -19,14 +19,14 @@ target_compile_definitions(InitialSetup
 
 target_link_libraries(InitialSetup
     PRIVATE
-        Qt::Core
-        Qt::Gui
-        Qt::Qml
-        Qt::Quick
-        Qt::QuickControls2
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Qml
+        Qt6::Quick
+        Qt6::QuickControls2
 )
 
 install(TARGETS InitialSetup
     BUNDLE  DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    RUNTIME DESTINATION ${KDE_INSTALL_BINDIR}
 )
