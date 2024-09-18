@@ -8,7 +8,7 @@ set_target_properties(InitialSetup
         OUTPUT_NAME "liri-initial-setup"
 )
 
-qt6_finalize_executable(InitialSetup)
+qt_finalize_executable(InitialSetup)
 
 target_compile_definitions(InitialSetup
     PRIVATE
